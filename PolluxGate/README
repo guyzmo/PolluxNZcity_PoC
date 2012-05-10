@@ -1,0 +1,18 @@
+Move all subdirectories into your Arduino/libraries directory and then open the pde sketch file.
+
+Or use the embedded Makefile: 
+ % make
+ % PORT=/dev/ttyACM0 make upload
+
+or if you use an Arduino Duemilanove
+
+ % PORT=/dev/ttyACM0 MODEL=atmega328 make upload
+
+if you use another arduino, please check on :
+
+ % make list
+
+Please check the pathes to your Arduino libraries,your avrdude and avr-gcc toolchain beforehands.
+
+AND USE Arduino IDE <1.0 !!!
+
