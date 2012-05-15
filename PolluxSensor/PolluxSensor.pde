@@ -30,7 +30,6 @@
 #include <stdlib.h> 
 
 // Include files for clock DS1307 library 
-#include <WProgram.h> 
 #include <Wire.h> 
 #include <DS1307.h> 
 #include <SCP1000.h>

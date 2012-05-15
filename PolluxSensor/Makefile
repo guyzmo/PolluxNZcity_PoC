@@ -45,7 +45,7 @@
 VERSION = 0.1
 
 # Standard Arduino libraries it will import, e.g. LiquidCrystal:
-ARDLIBS = Wire
+ARDLIBS = Wire Wire/utility
 
 # User-specified (in ~/sketchbook/libraries/) libraries :
 USERLIBS = 

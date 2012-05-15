@@ -5,13 +5,17 @@
 // 
 // Author: Mike McCauley (mikem@open.com.au)
 // Copyright (C) 2008 Mike McCauley
-// $Id: VirtualWire.h,v 1.3 2009/03/30 00:07:24 mikem Exp $
+// $Id: VirtualWire.h,v 1.4 2012/01/10 22:21:03 mikem Exp mikem $
 
 #ifndef VirtualWire_h
 #define VirtualWire_h
 
 #include <stdlib.h>
+#if ARDUINO >= 100
+#include <Arduino.h>
+#else
 #include <wiring.h>
+#endif
 
 // These defs cause trouble on some versions of Arduino
 #undef abs
@@ -19,7 +23,7 @@
 #undef round
 
 // Maximum number of bytes in a message, counting the byte count and FCS
-#define VW_MAX_MESSAGE_LEN 64
+#define VW_MAX_MESSAGE_LEN 30
 
 // The maximum payload length
 #define VW_MAX_PAYLOAD VW_MAX_MESSAGE_LEN-3

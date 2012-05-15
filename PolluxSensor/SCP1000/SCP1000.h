@@ -8,7 +8,7 @@
 #ifndef SCP1000_h
 #define SCP1000_h
 
-#include "WProgram.h"
+#include "Arduino.h"
 
 
 class SCP1000

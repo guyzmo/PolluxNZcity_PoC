@@ -5,7 +5,7 @@
 * Manages communication with SCP1000 barometric pressure & temperature sensor
 *
 */
-#include "WProgram.h"
+#include "Arduino.h"
 #include "SCP1000.h"
 
 // Class global constants
