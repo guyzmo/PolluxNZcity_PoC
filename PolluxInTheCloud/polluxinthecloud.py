@@ -51,7 +51,7 @@ _SENSOR_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Highcharts Example</title>
+		<title>Pollux'nz City Sensor charts -- %(uuid)s</title>
 		<link rel="stylesheet" type="text/css" href="/css/basic.css" />
 		
 		<!-- 1. Add these JavaScript inclusions in the head of your page -->
@@ -65,7 +65,7 @@ _SENSOR_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://
 		
 		<!-- 2. Add the JavaScript to initialize the chart on document ready -->
 		<script type="text/javascript">
-		var refreshRate = 1000 ;
+		var refreshRate = 30000 ;
 		var infoBulle = true ;
 		
 		$(function() {
@@ -585,7 +585,7 @@ chart0 = new Highcharts.Chart({
 	</head>
 	<body>
 	
-<img src="/img/polluxnzcity.png" width="250px" />
+<a href="/"><img src="/img/polluxnzcity.png" alt="Logo Pollux NZ City" /></a>
 	
 	<!-- the tabs -->
 <ul class="tabs">
@@ -663,6 +663,8 @@ def push_data(serial="none"):
             if k in request.GET:
                 try:
                     data[serial][k].append(_SENSOR_FUNCTORS[k](int(request.GET[k])))
+                    if len(data[serial][k]) > 25:
+                        data[serial][k] = data[serial][k][-25:]
                 except KeyError:
                     data[serial][k].append(int(request.GET[k]))
     else:
@@ -701,7 +703,13 @@ def visualize(serial):
 @route('/pull/pollux/:serial:/:sensor:.json')
 def pull_sensor(serial, sensor):
     values = [str(i) for i in data[serial][_SENSOR_PATH[sensor]]]
+    values.reverse()
     log.debug("content: %s" % values)
+    if len(values) < 20:
+        print '['+','.join(values+(20-len(values))*['0'])+']'
+        return '['+','.join(values+(20-len(values))*['0'])+']'
+
+
     return '['+','.join(values)+']'
 
 @route('')
