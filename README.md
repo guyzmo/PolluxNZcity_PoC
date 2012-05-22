@@ -32,12 +32,14 @@ just executes:
 and the software will be run and a browser will be launched (only on debian and
 ubuntu linux). Read the script to learn how to manually launch the software.
 
+N.B.: Once you have successfully launched the script, you can start the Pollux 
+Gate hardware (the one that is connected to the computer).
+
 Build me !
 ==========
 
 Open PolluxSensor/PolluxSensor.pde or PolluxGate/PolluxGate.pde in your Arduino
-IDE and build/upload it. You can also use the given Makefile, but this one works
-only on Mac OS X as is.
+IDE and build/upload it. You can also use the given Makefile.
 
 License
 =======
