@@ -34,7 +34,7 @@ div {margin:0 0 10px 0;}
 /* link inside the tab. uses a background image */
 .tabs a { 
 	font-family:arial;
-	background: url(tabs.png) no-repeat -652px 0;
+	background: url(../img/tabs.png) no-repeat -652px 0;
 	font-size:14px;
 	display:block;
 	height: 30px;  
